@@ -1,0 +1,5 @@
+﻿  Sean Carlson Data Structures Wk11 HW.cpp
+d:\college work\becker\classwork\fall 2018(final semester)\data structures\works\week 11\sean carlson data structures wk11 hw\sean carlson data structures wk11 hw\sean carlson data structures wk11 hw.cpp(41): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+d:\college work\becker\classwork\fall 2018(final semester)\data structures\works\week 11\sean carlson data structures wk11 hw\sean carlson data structures wk11 hw\sean carlson data structures wk11 hw.cpp(72): warning C4018: '<=': signed/unsigned mismatch
+d:\college work\becker\classwork\fall 2018(final semester)\data structures\works\week 11\sean carlson data structures wk11 hw\sean carlson data structures wk11 hw\sean carlson data structures wk11 hw.cpp(89): warning C4018: '<=': signed/unsigned mismatch
+  Sean Carlson Data Structures Wk11 HW.vcxproj -> D:\College work\Becker\Classwork\Fall 2018(Final semester)\Data Structures\Works\Week 11\Sean Carlson Data Structures Wk11 HW\Debug\Sean Carlson Data Structures Wk11 HW.exe

@@ -1,0 +1,27 @@
+﻿  main.cpp
+f:\media\documents\github\portfolio\gl final\samplefinalproject.vs2015\include\glm\detail\type_vec2.hpp(66): warning C4201: nonstandard extension used: nameless struct/union
+  f:\media\documents\github\portfolio\gl final\samplefinalproject.vs2015\include\glm\detail\type_vec2.hpp(229): note: see reference to class template instantiation 'glm::tvec2<T,P>' being compiled
+f:\media\documents\github\portfolio\gl final\samplefinalproject.vs2015\include\glm\detail\type_vec2.hpp(67): warning C4201: nonstandard extension used: nameless struct/union
+f:\media\documents\github\portfolio\gl final\samplefinalproject.vs2015\include\glm\detail\type_vec2.hpp(68): warning C4201: nonstandard extension used: nameless struct/union
+f:\media\documents\github\portfolio\gl final\samplefinalproject.vs2015\include\glm\detail\type_vec3.hpp(66): warning C4201: nonstandard extension used: nameless struct/union
+  f:\media\documents\github\portfolio\gl final\samplefinalproject.vs2015\include\glm\detail\type_vec3.hpp(251): note: see reference to class template instantiation 'glm::tvec3<T,P>' being compiled
+f:\media\documents\github\portfolio\gl final\samplefinalproject.vs2015\include\glm\detail\type_vec3.hpp(67): warning C4201: nonstandard extension used: nameless struct/union
+f:\media\documents\github\portfolio\gl final\samplefinalproject.vs2015\include\glm\detail\type_vec3.hpp(68): warning C4201: nonstandard extension used: nameless struct/union
+f:\media\documents\github\portfolio\gl final\samplefinalproject.vs2015\include\glm\detail\type_vec4.hpp(120): warning C4201: nonstandard extension used: nameless struct/union
+  f:\media\documents\github\portfolio\gl final\samplefinalproject.vs2015\include\glm\detail\type_vec4.hpp(350): note: see reference to class template instantiation 'glm::tvec4<T,P>' being compiled
+f:\media\documents\github\portfolio\gl final\samplefinalproject.vs2015\include\glm\detail\type_vec4.hpp(121): warning C4201: nonstandard extension used: nameless struct/union
+f:\media\documents\github\portfolio\gl final\samplefinalproject.vs2015\include\glm\detail\type_vec4.hpp(122): warning C4201: nonstandard extension used: nameless struct/union
+f:\media\documents\github\portfolio\gl final\samplefinalproject.vs2015\sdl2 template\main.cpp(68): warning C4100: 'lifetime': unreferenced formal parameter
+  SDL2 Template.vcxproj -> F:\Media\Documents\GitHub\Portfolio\GL FINAL\SampleFinalProject.VS2015\Debug\SDL2 Template.exe
+  F:\Media\Documents\GitHub\Portfolio\GL FINAL\SampleFinalProject.VS2015\lib\x86\glew32.dll
+  F:\Media\Documents\GitHub\Portfolio\GL FINAL\SampleFinalProject.VS2015\lib\x86\SDL2.dll
+  2 File(s) copied
+  File not found - *.tga
+  0 File(s) copied
+  F:\Media\Documents\GitHub\Portfolio\GL FINAL\SampleFinalProject.VS2015\SDL2 Template\layer_fragment.glsl
+  F:\Media\Documents\GitHub\Portfolio\GL FINAL\SampleFinalProject.VS2015\SDL2 Template\layer_vertex.glsl
+  2 File(s) copied
+  F:\Media\Documents\GitHub\Portfolio\GL FINAL\SampleFinalProject.VS2015\SDL2 Template\cube.obj
+  F:\Media\Documents\GitHub\Portfolio\GL FINAL\SampleFinalProject.VS2015\SDL2 Template\octo.obj
+  F:\Media\Documents\GitHub\Portfolio\GL FINAL\SampleFinalProject.VS2015\SDL2 Template\sphere.obj
+  3 File(s) copied
