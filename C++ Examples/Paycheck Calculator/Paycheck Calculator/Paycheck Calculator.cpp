@@ -1,10 +1,8 @@
 /*
-This program is meant to tell me what my monthly income will be after taxes and pre-tax deductions for a range of potential salaries.
+This program is meant give me a rough estimate of what my monthly income will be after taxes and pre-tax deductions for a range of potential salaries.
 */
 
-/*
-Project is WIP.
-*/
+
 #include "pch.h"
 #include <iostream>
 #include <string>
@@ -23,7 +21,7 @@ using namespace std;
 
 //Checks Income and sets the appropriate tax bracket.
 //Currently has 2019 single filer numbers since they're most relevant to me.
-float FedTaxBrackets(float m_Income);
+float FedTaxBrackets(float m_Income, float m_fedTaxTotal);
 
 int main()
 {
@@ -31,7 +29,7 @@ int main()
 	list<float>::iterator iter;
 	int Limit = 20;
 	float Income = 30000.0;
-	float StateIncTaxRate = 5.1f;
+	float StateIncTaxRate = 0.051f;
 	cout << "Input low-range annual salary: "; cin >> Income; cout << endl;
 	cout << "Salaries will be counted in units of 1000.\nInput how many salaries to calculate:"; cin >> Limit; cout << endl;
 	
@@ -65,10 +63,9 @@ int main()
 	for (int i = 0; i < Limit; i++)
 	{
 		float Incriment = 1000.0;
-
-
 		Income = Income + Incriment;
 		annualSalary.push_back(Income);
+
 	}
 	cout << "Calculating monthly income for the following salaries: \n";
 	for (iter = annualSalary.begin(); iter != annualSalary.end(); iter++)
@@ -97,7 +94,8 @@ int main()
 
 	for (iter = annualIncomeAfterPreTax.begin(); iter != annualIncomeAfterPreTax.end(); iter++)
 	{
-		float fedTaxTotal = *iter - FedTaxBrackets(*iter);
+		float fedTaxTotal = 0;
+		fedTaxTotal = FedTaxBrackets(*iter, fedTaxTotal);
 		float stateTaxTotal = *iter * StateIncTaxRate;
 		float result = 0;
 		result = *iter - fedTaxTotal - stateTaxTotal;
@@ -132,14 +130,13 @@ int main()
 /*
 Checks Income and calculates total federal taxes for the appropriate tax bracket range.
 */
-float FedTaxBrackets(float m_Income)
+float FedTaxBrackets(float m_Income, float m_fedTaxTotal)
 {
 	
 
 float firstBracket = 0;
 const float Bracket1_Range1 = 0, Bracket1_Range2 = 9700;
 
-cout << "Icome: " << m_Income << " Bracket 1: " << firstBracket << "\n Bracket range 1: " << Bracket1_Range1 << " Bracket range 2 " << Bracket1_Range2 << "\n";
 if (m_Income > Bracket1_Range1 && m_Income <= Bracket1_Range2)
 	{
 		firstBracket = (m_Income * 0.10f);
@@ -148,13 +145,13 @@ if (m_Income > Bracket1_Range1 && m_Income <= Bracket1_Range2)
 	{
 		firstBracket = (Bracket1_Range2 * 0.10f);
 	}
-	cout << " Bracket 1: " << firstBracket << "\n";
+
 	
 
 
 float secondBracket=0;
 const float Bracket2_Range1 = 9701, Bracket2_Range2 = 39475;
-cout << " Bracket 2: " << secondBracket << "\n Bracket range 1: " << Bracket2_Range1 << " Bracket range 2 " << Bracket2_Range2 << "\n";
+
 	if (m_Income >= Bracket2_Range1 && m_Income <= Bracket2_Range2)
 	{
 		
@@ -167,13 +164,13 @@ cout << " Bracket 2: " << secondBracket << "\n Bracket range 1: " << Bracket2_Ra
 	secondBracket = (Bracket2_Range2 - Bracket2_Range1) * 0.12f;
 	
 }
-cout << " Bracket 2: " << secondBracket<<"\n";
+;
 
 
 
 float thirdBracket=0;
 const float Bracket3_Range1 = 39476, Bracket3_Range2 = 84200;
-cout  << " Bracket3: " << thirdBracket << "\n Bracket range 1: " << Bracket3_Range1 << " Bracket range 2 " << Bracket3_Range2 << "\n";
+
 	if (m_Income >= Bracket3_Range1 && m_Income <= Bracket3_Range2)
 	{
 		float localHolder = m_Income - Bracket3_Range1;
@@ -183,12 +180,12 @@ cout  << " Bracket3: " << thirdBracket << "\n Bracket range 1: " << Bracket3_Ran
 	{
 		thirdBracket = ((Bracket3_Range2 - Bracket3_Range1)*0.22f);
 	}
-cout << " Bracket3: " << thirdBracket << "\n";
+
 	
 
 float fourthBracket = 0;
 	const float Bracket4_Range1 = 84201, Bracket4_Range2 = 160725;
-cout << " Bracket 4: " << fourthBracket << "\n Bracket range 1: " << Bracket4_Range1 << " Bracket range 2 " << Bracket4_Range2 << "\n";
+
 	if (m_Income >= Bracket4_Range1 && m_Income <= Bracket4_Range2)
 	{
 		float localHolder = m_Income - Bracket4_Range1;
@@ -198,11 +195,10 @@ cout << " Bracket 4: " << fourthBracket << "\n Bracket range 1: " << Bracket4_Ra
 	{
 		fourthBracket = ((Bracket4_Range2 - Bracket4_Range1)*0.24f);
 	}
-	cout << " Bracket 4: " << fourthBracket <<  "\n";
 
 	float fifthBracket = 0;
 	const float Bracket5_Range1 = 160726, Bracket5_Range2 = 204100;
-	cout << " Bracket 5: " << fifthBracket << "\n Bracket range 1: " << Bracket5_Range1 << " Bracket range 2 " << Bracket5_Range2 << "\n";
+
 	if (m_Income >= Bracket5_Range1 && m_Income <= Bracket5_Range2)
 	{
 		float localHolder = m_Income - Bracket5_Range1;
@@ -212,12 +208,12 @@ cout << " Bracket 4: " << fourthBracket << "\n Bracket range 1: " << Bracket4_Ra
 	{
 		fifthBracket = ((Bracket5_Range2 - Bracket5_Range1)*0.32f);
 	}
-	cout << " Bracket 5: " << fifthBracket << "\n";
+
 	
 	
 	float sixthBracket = 0;
 	const float Bracket6_Range1 = 204401, Bracket6_Range2 = 510300;
-	cout << " Bracket 6: " << sixthBracket << "\n Bracket range 1: " << Bracket6_Range1 << " Bracket range 2 " << Bracket6_Range2 << "\n";
+
 	if (m_Income >= Bracket6_Range1 && m_Income <= Bracket6_Range2)
 	{
 		float localHolder = m_Income - Bracket6_Range1;
@@ -227,19 +223,19 @@ cout << " Bracket 4: " << fourthBracket << "\n Bracket range 1: " << Bracket4_Ra
 	{
 		sixthBracket = ((Bracket6_Range2 - Bracket6_Range1)*0.35f);
 	}
-	cout<< " Bracket 6: " << sixthBracket << "\n";
+
 	
 	float seventhBracket = 0;
 	const float Bracket7_Range1 = 501301;
-	cout << " Bracket 7: " << seventhBracket << "\n Bracket range 1: " << Bracket7_Range1 << "\n";
+
 	if (m_Income >= Bracket7_Range1)
 	{
 		float localHolder = m_Income - Bracket7_Range1;
 		seventhBracket = (localHolder *= 0.37f);
 	}
-	cout << " Bracket 7: " << seventhBracket << "\n\n";
 
-	float totalTax = firstBracket + secondBracket + thirdBracket + fourthBracket + fifthBracket + sixthBracket + seventhBracket;
-	cout << "Total Tax "<<totalTax<<"\n\n";
-	return totalTax;
+
+	 m_fedTaxTotal = firstBracket + secondBracket + thirdBracket + fourthBracket + fifthBracket + sixthBracket + seventhBracket;
+	
+	return m_fedTaxTotal;
 }
