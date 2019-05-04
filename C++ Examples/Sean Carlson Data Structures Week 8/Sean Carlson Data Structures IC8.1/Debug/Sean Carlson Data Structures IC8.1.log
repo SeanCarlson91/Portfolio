@@ -1,4 +1,0 @@
-﻿  Sean Carlson Data Structures HW8.cpp
-F:\Media\Documents\GitHub\Portfolio\C++ Examples\Sean Carlson Data Structures Week 8\Sean Carlson Data Structures IC8.1\Sean Carlson Data Structures HW8.cpp(95): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-F:\Media\Documents\GitHub\Portfolio\C++ Examples\Sean Carlson Data Structures Week 8\Sean Carlson Data Structures IC8.1\Sean Carlson Data Structures HW8.cpp(60): warning C4930: 'airplane plane(void)': prototyped function not called (was a variable definition intended?)
-  Sean Carlson Data Structures IC8.1.vcxproj -> F:\Media\Documents\GitHub\Portfolio\C++ Examples\Sean Carlson Data Structures Week 8\Debug\Sean Carlson Data Structures IC8.1.exe
