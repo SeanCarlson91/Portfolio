@@ -2,8 +2,9 @@
 /*
 By Sean Carlson
 This is homework from week 8 of Data Strctures when I was at Becker College.
+It's a simulation of an airport take off and landing sequence using queues.
 */
-#include <vector>
+
 #include <queue>
 #include <iostream>
 #include <string>
@@ -93,26 +94,24 @@ int main()
 		
 		runway.status=true;
 		srand(time(NULL));
+		
 		float randomDep = rand() / float(RAND_MAX);
-
-
-
-		if (randomDep <= departureprob)
+		if (randomDep <= departureprob)//Generates a plane for the departue queue with a random 3 digit tail number requesting permission for take off.
 		{
 			
 			airplane plane(rand() % 999);
 			departures.push(plane);
-			cout << "Control tower this is " << departures.back().gettailNumber() << " requesting departure clearance." << endl;
+			cout << "ATC this is " << departures.back().gettailNumber() << " requesting departure clearance." << endl;
 		}
 
 
 		float randomArv = rand() / float(RAND_MAX);
-		if(randomArv<=arrivalprob)
+		if(randomArv<=arrivalprob)//Generates a plane for the arrival cue with a random 3 digit tail number requesting to land.
 		{
 			
 			airplane plane(rand()%999);
 			arrivals.push(plane);
-			cout << "Control tower this is " << arrivals.back().gettailNumber() <<  " requesting permission to land." << endl;
+			cout << "ATC this is " << arrivals.back().gettailNumber() <<  " requesting permission to land. Approach button 15. Angels .5. Over." << endl;
 		}
 
 
@@ -125,7 +124,7 @@ int main()
 
 
 		//landing/departure sequence
-		if (arrivals.size() > 0)
+		if (arrivals.size() > 0)//If the runway has more than 0 planes on it it's occupied
 		{
 			runway.setstatus(false);
 		//	cout << "Runway status false\n\n\n";
@@ -136,10 +135,10 @@ int main()
 			//cout << "Output expected\n\n";
 
 
-			cout << arrivals.front().gettailNumber() << " you are cleared for landing."<<endl;
+			cout << arrivals.front().gettailNumber() << " you are cleared for landing on runway 5205. Over."<<endl;
 			arrivals.pop();
 
-			runway.setstatus(true);
+			runway.setstatus(true);//After the plane lands it's taxiing off the runway so the runway is set to clear.
 			if (runway.getstatus() == true)
 			{
 				cout << "Runway status: Clear" << endl;
@@ -148,7 +147,7 @@ int main()
 
 
 
-		if (arrivals.size()==0 && departures.size()>0)
+		if (arrivals.size()==0 && departures.size()>0)//If there are no planes coming in to land AND a plane is waiting to take off, the runway is set to occupied and the plane is given permission to take off.
 		{
 			runway.setstatus(false);
 			//cout << "Runway status set to false.\n\n\n";
@@ -159,10 +158,10 @@ int main()
 			//cout << "Output expected.\n\n\n\n\n\n\n";
 
 	
-			cout << departures.front().gettailNumber() << " departure clearance granted." << endl;
+			cout << departures.front().gettailNumber() << " departure clearance granted on runway 5205. Over." << endl;
 			departures.pop();
 
-			runway.setstatus(true);
+			runway.setstatus(true);//After take off the runway is set to clear.
 			if (runway.getstatus() == true)
 			{
 				cout << "Runway status: Clear" << endl;
@@ -170,8 +169,9 @@ int main()
 		}
 		
 
-		this_thread::sleep_for(chrono::seconds(1));//1 second time delay
-	}
+		this_thread::sleep_for(chrono::seconds(1));//1 second time delay before loop repeats.
+	}//End for loop
+
 
 	int wait;
 	cin >> wait;
@@ -233,6 +233,7 @@ void runway::setstatus(bool status)
 {
 	m_status = status;
 }
+
 /*
 void runway::OutputTOLs(short unsigned int takeoffs, short unsigned int landings)
 {

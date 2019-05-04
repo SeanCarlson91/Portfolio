@@ -12,7 +12,7 @@ This program is meant give me a rough estimate of what my monthly income will be
 //Containers
 #include <list>
 
-//multithreading if needed
+//Just in case there's a use for multithreading here.
 #include <thread>
 
 
@@ -29,21 +29,13 @@ int main()
 	list<float>::iterator iter;
 	int Limit = 20;
 	float Income = 30000.0;
-	float StateIncTaxRate = 0.051f;
+	float StateIncTaxRate = 0.051f; //Massachusetts income tax rate.
 	cout << "Input low-range annual salary: "; cin >> Income; cout << endl;
 	cout << "Salaries will be counted in units of 1000.\nInput how many salaries to calculate:"; cin >> Limit; cout << endl;
 	
 
 
-	/*cout << "Input tax rates as a decimal.\n";
-	
-	float FICA = 0, SocialSecurity = 0.0620, Medicare = 0.0145;
-	cout << "Federal Income Tax Rate: "; cin >> FedIncTaxRate; cout << endl;
-	cout << "State Income Tax Rate: "; cin >> StateIncTaxRate; cout << endl;
-	cout << "Local Income Tax: "; cin >> LocalIncTaxRate; cout << endl;
-	cout << "FICA: "; cin >> FICA; cout << endl;
-	cout << "Social Security: "; cin >> SocialSecurity; cout << endl;
-	cout << "Medicare "; cin >> Medicare; cout << endl;*/
+
 
 
 	//Pretax Deductions
@@ -59,7 +51,9 @@ int main()
 	cout << "FSA: "; cin >> FSA; cout << endl;
 	cout << "HSA: "; cin >> HSA; cout << endl;
 
-
+	/**
+	 * Fills a list with the pre-deduction salaries and output what will be calculated.
+	 */
 	for (int i = 0; i < Limit; i++)
 	{
 		float Incriment = 1000.0;
@@ -73,7 +67,7 @@ int main()
 		cout << *iter << endl;
 	}
 
-	//Pretax deductions. Calculates amount to deduct and inserts the result into a new list
+	//Pretax deductions. Calculates amount to deduct and inserts the result into a new list.
 	list<float> annualIncomeAfterPreTax;
 	cout << "Calculating pre-tax deductions\n";
 	for (iter = annualSalary.begin(); iter != annualSalary.end(); iter++)
@@ -89,7 +83,7 @@ int main()
 
 
 
-	//Taxes
+	//Now that pre-tax deductions have been subtracted from the salaries it's time to calculate the taxes.
 	list<float>annualIncomeAfterTaxes;
 
 	for (iter = annualIncomeAfterPreTax.begin(); iter != annualIncomeAfterPreTax.end(); iter++)
@@ -108,7 +102,9 @@ int main()
 	}
 
 
-
+	/*
+	Takes the final annual income values and divides by 12 to give a rough approximation of the monthly income.
+	*/
 
 	list<float>MonthlyIncome;
 	for (iter = annualIncomeAfterTaxes.begin(); iter != annualIncomeAfterTaxes.end(); iter++)
@@ -128,7 +124,9 @@ int main()
 }
 
 /*
-Checks Income and calculates total federal taxes for the appropriate tax bracket range.
+Checks Income and calculates total federal taxes for the appropriate tax bracket range. 
+Currently has 2019 tax bracket numbers.
+Future goal: make it possible to input, save and loan tax bracket numbers instead of hard coding the tax brackets.
 */
 float FedTaxBrackets(float m_Income, float m_fedTaxTotal)
 {
